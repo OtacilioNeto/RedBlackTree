@@ -39,39 +39,21 @@ void left_rotate(arvoreRB_t *T, no_t *x){
 
 void right_rotate(arvoreRB_t *T, no_t *x){
 	no_t *y;
-	//printf("ENTER_RIGHT_ROTATE\n");
-	//T->print(x);
 	y = ESQUERDO(x);
-	//printf("DEBUG RIGHT 00\n");
-	//T->print(y);
 	ESQUERDO(x) = DIREITO(y);
-	//printf("DEBUG RIGHT 01\n");
 	if (DIREITO(y) != NULO(T)){
-		//printf("DEBUG RIGHT 02\n");
 		PAI(DIREITO(y)) = x;
-		//printf("DEBUG RIGHT 03\n");
 	}
-	//printf("DEBUG RIGHT 04\n");
 	PAI(y) = PAI(x);
-	//printf("DEBUG RIGHT 05\n");
 	if(PAI(x)== NULO(T)){
-		//printf("DEBUG RIGHT 06\n");
 		RAIZ(T) = y;
-		//printf("DEBUG RIGHT 07\n");
 	}else if(x == DIREITO(PAI(x))){
-		//printf("DEBUG RIGHT 08\n");
 		DIREITO(PAI(x)) = y;
-		//printf("DEBUG RIGHT 09\n");
 	}else{
-		//printf("DEBUG RIGHT 10\n");
 		ESQUERDO(PAI(x)) = y;
-		//printf("DEBUG RIGHT 11\n");
 	}
-	//printf("DEBUG RIGHT 12\n");
 	DIREITO(y) = x;
-	//printf("DEBUG RIGHT 13\n");
 	PAI(x) = y;
-	//printf("EXIT_RIGHT_ROTATE\n");
 }
 
 no_t *tree_minimum(arvoreRB_t *T, no_t	*x){
@@ -209,7 +191,6 @@ void rb_transplant(arvoreRB_t *T, no_t *u, no_t *v){
 
 void rb_delete_fixup(arvoreRB_t *T, no_t *x){
     no_t *w;
-    // printf("%d\n", COR(x));
     while(x != RAIZ(T) && COR(x) == BLACK){
         if(x == ESQUERDO(PAI(x))){
             w = DIREITO(PAI(x));
@@ -237,7 +218,6 @@ void rb_delete_fixup(arvoreRB_t *T, no_t *x){
 				x = RAIZ(T);
             }
         }else{
-        	//printf("DIREITO\n");
             w = ESQUERDO(PAI(x));
             if(COR(w) == RED){
                 COR(w) = BLACK;
