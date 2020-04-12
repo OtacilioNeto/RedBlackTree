@@ -17,15 +17,9 @@ typedef unsigned char uint8_t;
 #endif
 
 
-#define     RED     4
-#define     BLACK   0
+enum{RED, BLACK};
 
-#define		REDBLACK	1
-#define		NORMAL		0
-
-typedef enum{
-    INICIO, MEIO, FIM, BUSCA
-}tipoDiv_t; // Tipos dos pontos que declaramos
+enum{REDBLACK, NORMAL};
 
 typedef struct no_s{
 	void		    *dado;
@@ -54,16 +48,16 @@ typedef struct arvoreRB_s{
 	walk_sig	*walk;
 }arvoreRB_t;
 
-#define ESQUERDO(x)					(x->esquerdo)
-#define DIREITO(x)					(x->direito)
-#define PAI(x)						(x->p)
-#define COR(x)                      (x->cor)
-#define RAIZ(T)						((T)->raiz)
-#define NULO(T)                     ((T)->folha_NULL)
-#define COUNT(T)					((T)->count)
-#define DADO(x)						(x->dado)
-#define COMPARA(T)					((T)->compara)
-#define	RB(T)						((T)->rb)
+#define ESQUERDO(x)	(x->esquerdo)
+#define DIREITO(x)	(x->direito)
+#define PAI(x)		(x->p)
+#define COR(x)		(x->cor)
+#define RAIZ(T)		((T)->raiz)
+#define NULO(T)		((T)->folha_NULL)
+#define COUNT(T)	((T)->count)
+#define DADO(x)		(x->dado)
+#define COMPARA(T)	((T)->compara)
+#define	RB(T)		((T)->rb)
 
 /**
  * Inicializa os campos da árvore binária.
